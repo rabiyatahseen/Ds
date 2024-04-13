@@ -19,7 +19,7 @@ void main()
 
     scanf("%d", &a[i]);
 
-    insertionsort(a,n);
+    selectionsort(a,n);
     
     printf("Sorted list\n");
 
