@@ -55,7 +55,7 @@ void delete()
 	else
 	{
 		printf("%d",queue[front]);
-		if(front=rear)
+		if(front==rear)
 			front=rear=-1;
 		else
 			front=(front+1)%MAX;
