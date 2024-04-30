@@ -10,8 +10,7 @@ void delete();
 int main(){
 	int item,choice;
 	while(1){
-		    printf("\n....MENU...\n");
-	    	printf("1.insert\n2.delete\n3.display\n4.exit\n");
+		    printf("\n....MENU...\n");	      printf("1.insert\n2.delete\n3.display\n4.exit\n");
 	     	printf("enter your choice:");
 		    scanf("%d",&choice);
 		    switch(choice){
