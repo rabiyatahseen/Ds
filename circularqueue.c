@@ -1,4 +1,4 @@
-/*program to implement circular queue*/
+/*Implementation of circulr queue*/
 #include<stdio.h>
 #include<stdlib.h>
 #define MAX 5
@@ -7,53 +7,40 @@ int front=-1,rear=-1;
 void insert(int);
 void delete();
 void display();
-int main()
-{
-	int choice,item;
-	char ch;
-	while(1)
-	{
-		printf("\nMENU\n");
-		printf("1.insert \n");
-		printf("2.delete \n");
-		printf("3.display\n");
-		printf("4.exit\n");
-		printf("enter your choice:");
+int main(){
+	int item,choice;
+	while(1){
+		printf("\n...MENU..\n");
+		printf("1.INSERT\n2.DELETE\n3.DISPLAY\n4.EXIT\n");
+		printf("enter your choice: \n");
 		scanf("%d",&choice);
-		switch(choice)
-		{
-		      	 case 1:printf("enter the element:");
+		switch(choice){
+			case 1:printf("enter the element:");
 				scanf("%d",&item);
-			 	insert(item);
+				insert(item);
 				break;
-			 case 2:delete();
-			 	break;
-			 case 3:display();
-			 	break;
-			 case 4:exit(0);
-			 default:printf("invalid choice\n");
-			 	
+			case 2:delete();
+				break;
+			case 3:display();
+				break;
+			case 4:exit(0);
+		 	default:printf("invlid choice");
 		}
 	}
 }
-void insert(int item)
-{
+void insert(int item){
 	if((rear+1)%MAX==front)
-		printf("queue is full\n");
-	else
-	{
-		rear=rear+1%MAX;
+		printf("Q is FULL\n");
+	else{
+		rear=(rear+1)%MAX;
 		queue[rear]=item;
-		if(front==-1)
-			front=0;
+		if(front==-1) front=0;
 	}
 }
-void delete()
-{
+void delete(){
 	if(front==-1)
-		printf("queue is empty\n");
-	else
-	{
+		printf("QUEUE IS EMPTY\n");
+	else{
 		printf("%d",queue[front]);
 		if(front==rear)
 			front=rear=-1;
@@ -61,28 +48,15 @@ void delete()
 			front=(front+1)%MAX;
 	}
 }
-void display()
-{
-	int i;
+void display(){
+	int i=front;
 	if(front==-1)
 		printf("queue is empty\n");
-	else
-	{
-		printf("queue content");
-		if(front<=rear)
-		{
-			for(i=front;i<=rear;i++)
+	else{
+		while(i!=rear){
 			printf("%4d",queue[i]);
+			i=(i+1)%MAX;
 		}
-		else
-		{
-			for(i=front;i<=MAX-1;i++)
-				printf("%4d",queue[i]);
-			for(i=0;i<=rear;i++)
-				printf("%4d",queue[i]);
-		}
+		printf("%4d",queue[rear]);
 	}
-				
-		
 }
-
